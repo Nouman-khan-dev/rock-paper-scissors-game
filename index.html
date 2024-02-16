@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png" />
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style-responsive.css" />
+
+        <title>Frontend Mentor | Rock, Paper, Scissors</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="title">
+                <img src="images/logo.svg" alt="" />
+            </div>
+            <div class="rightScore">
+                <p>score</p>
+                <h2 id="score">0</h2>
+            </div>
+        </header>
+
+        <main>
+            <div class="btnsContainer">
+                <div class="top">
+                    <div id="paper" class="hand paper">
+                        <img src="images/icon-paper.svg" alt="" />
+                    </div>
+                    <div id="scissors" class="hand scissors">
+                        <img src="images/icon-scissors.svg" alt="" />
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div id="rock" class="hand rock">
+                        <img src="images/icon-rock.svg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <!-- winner page -->
+            <div class="winnerCont hide">
+                <div class="user">
+                    <h4>You picked</h4>
+                    <div class="userPicked"></div>
+                </div>
+                <div class="result"></div>
+                <div class="house">
+                    <h4>House picked</h4>
+                    <div class="housePicked"></div>
+                </div>
+            </div>
+            <!-- rules button and overlay container -->
+            <button id="rulesBtn">RULES</button>
+            <div class="overlay_rules hide">
+                <div class="rules_container">
+                    <div class="controll">
+                        <h2>rules</h2>
+                        <span
+                            ><img
+                                class="closeBtn"
+                                src="images/icon-close.svg"
+                                alt=""
+                        /></span>
+                    </div>
+                    <div class="rulesImg">
+                        <img src="images/image-rules.svg" alt="" />
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="attribution">
+            Challenge by
+            <a
+                href="https://www.frontendmentor.io?ref=challenge"
+                target="_blank"
+                >Frontend Mentor</a
+            >. Coded by
+            <a
+                href="#https://www.frontendmentor.io/profile/Nouman-khan-dev"
+                >Nouman khan</a
+            >.
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

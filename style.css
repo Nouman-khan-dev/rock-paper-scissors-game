@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700;800&display=swap');
+:root {
+    --ScissorsGradient: linearGradient(
+        hsl(39, 89%, 49%) to hsl(40, 84%, 53%)
+    );
+    --PaperGradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
+    --RockGradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+    --LizardGradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+    --Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+
+    --DarkText: hsl(229, 25%, 31%);
+    --ScoreText: hsl(229, 64%, 46%);
+    --HeaderOutline: hsl(217, 16%, 45%);
+
+    --RadialGradient: linearGradient(
+        rgb(31, 55, 87) to rgb(20, 22, 56)
+    );
+    --white: rgb(250, 250, 250);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+.hide {
+    display: none !important;
+}
+.win {
+    box-shadow: 0 0 10px rgb(241, 241, 241);
+}
+body {
+    width: 100%;
+    max-width: 1366px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: var(--RadialGradient);
+    background: linear-gradient(rgb(31, 55, 87), rgb(20, 22, 56));
+    padding-top: 30px;
+    position: relative;
+}
+
+.attribution {
+    width: 100%;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    padding: 2px 0;
+}
+.attribution a {
+    color: white;
+}
+
+.header {
+    max-width: 700px;
+    width: 95%;
+    margin: 0 auto;
+    height: 140px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid hsl(217, 16%, 45%);
+    border-radius: 15px;
+}
+
+.header .title img {
+    height: 100px;
+    margin-bottom: -6px;
+}
+
+.header .rightScore {
+    background: rgb(250, 250, 250);
+    height: 110px;
+    width: 140px;
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+}
+.header .rightScore p {
+    color: hsl(229, 64%, 46%);
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.header .rightScore h2 {
+    font-size: 3.2em;
+    line-height: 90%;
+    letter-spacing: -1px;
+    color: hsl(220, 2%, 35%);
+}
+
+/* main */
+
+main {
+    width: 100%;
+    height: calc(100vh - 170px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main .btnsContainer {
+    width: 420px;
+    height: fit-content;
+    gap: 20px;
+    background: url(images/bg-triangle.svg) no-repeat center;
+    background-size: 270px 200px;
+    background-position-y: 50%;
+}
+.btnsContainer img {
+    width: 65px;
+}
+main .btnsContainer .top,
+main .btnsContainer .bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main .btnsContainer .top {
+    justify-content: space-between;
+}
+main .btnsContainer .bottom {
+    margin-top: 25px;
+}
+
+main .btnsContainer .paper,
+main .btnsContainer .rock,
+main .btnsContainer .scissors {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgb(250, 250, 250);
+}
+
+.paper {
+    border: 18px solid hsl(230, 89%, 65%);
+    box-shadow: 0 8px 0 0px hsl(230, 89%, 62%), inset 0 6px 0 #bcbcbc;
+}
+.scissors {
+    border: 18px solid hsl(40, 84%, 53%);
+    box-shadow: 0 8px 0 0px hsl(39, 89%, 49%), inset 0 6px 0 #bcbcbc;
+}
+.rock {
+    border: 18px solid hsl(349, 70%, 56%);
+    box-shadow: 0 8px 0 0px hsl(349, 69%, 47%), inset 0 6px 0 #bcbcbc;
+}
+/* butons hover */
+.btnsContainer .paper:hover,
+.btnsContainer .scissors:hover,
+.btnsContainer .rock:hover {
+    transform: translateY(-5px);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+/* -==============result==========-  */
+.winnerCont {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.winnerCont h4 {
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.winnerCont .result {
+    width: 0px;
+    opacity: 0;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+.result.resultOut {
+    animation: anim 1s ease forwards;
+}
+@keyframes anim {
+    to {
+        width: 300px;
+        opacity: 1;
+    }
+}
+.result h1 {
+    color: white;
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+.result button {
+    padding: 10px 50px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--DarkText);
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.result button:hover {
+    color: rgb(184, 14, 14);
+}
+
+.housePicked {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    z-index: 1;
+}
+.housePicked::after {
+    content: '';
+    position: absolute;
+    inset: 20px 20px 20px 20px;
+    z-index: 0;
+    border-radius: 50%;
+    background: rgb(20, 22, 56);
+}
+.winnerCont .paper,
+.winnerCont .rock,
+.winnerCont .scissors {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: rgb(250, 250, 250);
+    border-width: 30px;
+    position: relative;
+    z-index: 1;
+}
+.winnerCont img {
+    width: 130px;
+}
+
+.winnerCont .win {
+    box-shadow: 0 0 0 50px rgba(132, 132, 132, 0.05),
+        0 0 0 100px rgba(255, 255, 255, 0.03),
+        0 0 0 175px rgba(255, 255, 255, 0.02);
+}
+.userPicked,
+.housePicked {
+    border-radius: 50%;
+}
+/* rules */
+#rulesBtn {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    padding: 8px 40px;
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+    border-radius: 5px;
+}
+
+.overlay_rules {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    inset: 0 0 0 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.rules_container {
+    width: 400px;
+    height: 420px;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.rules_container .controll {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 20px;
+}
+.rules_container h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.closeBtn:hover {
+    cursor: pointer;
+    filter: brightness(1%);
+}
+.rulesImg {
+    width: 90%;
+}
+.rulesImg img {
+    width: 100%;
+}
